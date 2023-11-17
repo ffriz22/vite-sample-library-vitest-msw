@@ -1,0 +1,45 @@
+{
+  "name": "sample-library",
+  "private": true,
+  "version": "0.0.1",
+  "author": "francofriz",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/my-lib.umd.cjs",
+  "module": "./dist/my-lib.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/my-lib.js",
+      "require": "./dist/my-lib.umd.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "lint": "eslint --fix --ignore-path .eslintignore --ext .js,.ts",
+    "preview:package": "npm pack --dry-run"
+  },
+  "devDependencies": {
+    "@types/node": "^20.9.0",
+    "@typescript-eslint/eslint-plugin": "^6.10.0",
+    "@typescript-eslint/parser": "^6.10.0",
+    "@vitest/ui": "^0.34.6",
+    "eslint": "^8.53.0",
+    "jsdom": "^22.1.0",
+    "msw": "^2.0.5",
+    "typescript": "^5.0.2",
+    "vite-plugin-dts": "^3.6.3",
+    "vite-plugin-eslint": "^1.8.1",
+    "vitest": "^0.34.6"
+  },
+  "dependencies": {
+    "vite": "^5.0.0"
+  }
+}
