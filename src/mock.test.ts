@@ -1,7 +1,7 @@
 import { describe, expect, test } from "vitest";
 
 describe("Sample Testing", () => {
-  const headerAuth = { "auth-dg": "12345" };
+  const headerAuth = { auth: "12345" };
 
   test("sample unauthorized", async () => {
     const response = await fetch("http://test/example-get");

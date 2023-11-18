@@ -1,5 +1,5 @@
 import { http, HttpResponse } from "msw";
-const AUTH_DG = "auth-dg";
+const AUTH = "auth";
 const sampleResponse = { id: 1, sample: "sample" };
 
 function apiExample(path) {
@@ -8,7 +8,7 @@ function apiExample(path) {
 
 export const handlers = [
   http.get(apiExample("/example-get"), async ({ request }) => {
-    const authToken = request.headers.get(AUTH_DG);
+    const authToken = request.headers.get(AUTH);
     if (!authToken || authToken !== "12345") {
       return HttpResponse.json({ msg: "Unauthorized" }, { status: 401 });
     }
@@ -17,7 +17,7 @@ export const handlers = [
   }),
 
   http.post(apiExample("/example-post"), async ({ request }) => {
-    const authToken = request.headers.get(AUTH_DG);
+    const authToken = request.headers.get(AUTH);
     if (!authToken || authToken !== "12345") {
       return HttpResponse.json({ msg: "Unauthorized" }, { status: 401 });
     }
